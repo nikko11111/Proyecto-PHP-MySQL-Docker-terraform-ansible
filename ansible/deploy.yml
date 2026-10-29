@@ -1,0 +1,17 @@
+---
+- name: Validar y desplegar mi proyecto Docker
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Validar la configuracion de Docker Compose
+      ansible.builtin.command:
+        cmd: docker compose config
+        chdir: "{{ playbook_dir | dirname }}"
+      changed_when: false
+
+    - name: Construir y arrancar los servicios
+      ansible.builtin.command:
+        cmd: docker compose up --build -d
+        chdir: "{{ playbook_dir | dirname }}"

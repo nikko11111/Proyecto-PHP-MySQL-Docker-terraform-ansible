@@ -1,0 +1,15 @@
+# Variables de entorno y secretos
+.env
+.env.*
+
+# Excepción para una plantilla sin secretos
+!.env.example
+
+# Archivos de respaldo
+*.sql
+*.sql.gz
+*.bak
+
+# Archivos del sistema y editores
+.DS_Store
+.vscode/
